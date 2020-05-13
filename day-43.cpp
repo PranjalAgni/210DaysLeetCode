@@ -24,6 +24,8 @@ Output: "0"
 Explanation: Remove all the digits from the number and it is left with nothing which is 0.
 */
 
+// Idea: Greedy approach when you find the peek element delete element to its right until you find another peek.
+
 // Solved in O(N + k) & O(1)
 class Solution {
    public:
