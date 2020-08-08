@@ -31,6 +31,10 @@ Return 3. The paths that sum to 8 are:
 3. -3 -> 11
 */
 
+// Simple recursion approach to solve the problem.
+// Calling pathSumUtils for each node in the tree
+// So we can continue the search for targetSum from each node to bottom of the
+// tree
 class Solution {
    public:
     int pathSumUtils(TreeNode* root, int sum) {
