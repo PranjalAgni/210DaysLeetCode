@@ -55,18 +55,18 @@ code definition to get new method signature.
 */
 
 // Using binary search to solve this. O(NlogN) time complexity
+
 class Solution {
    public:
-    int binarySearch(vector<pair<pair<int, int>, int>>& intervalDS,
-                     int target) {
+    int binarySearch(vector<pair<int, int>>& intervalDS, int target) {
         int low = 0;
         int high = intervalDS.size() - 1;
 
-        if (intervalDS[high].first.first < target) return -1;
+        if (intervalDS[high].first < target) return -1;
 
         while (low <= high) {
             int mid = low + (high - low) / 2;
-            if (intervalDS[mid].first.first >= target) {
+            if (intervalDS[mid].first >= target) {
                 high = mid - 1;
             } else {
                 low = mid + 1;
@@ -80,11 +80,11 @@ class Solution {
         int N = intervals.size();
         if (N <= 1) return {-1};
 
-        vector<pair<pair<int, int>, int>> intervalDS;
+        vector<pair<int, int>> intervalDS;
 
         int idx = 0;
         for (int idx = 0; idx < N; idx++) {
-            intervalDS.push_back({{intervals[idx][0], intervals[idx][1]}, idx});
+            intervalDS.push_back({intervals[idx][0], idx});
         }
 
         sort(intervalDS.begin(), intervalDS.end());
