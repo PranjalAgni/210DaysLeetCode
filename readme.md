@@ -6,7 +6,7 @@ How this works is that we've split the month up into 5 weeks, with 1 chapter for
 
 ---
 
-This is combined repository for 30DaysApril + 30DaysMay + 30DaysJune + 30DaysJuly Challenge
+This is combined repository for 30DaysApril + 30DaysMay + 30DaysJune + 30DaysJuly + 30DaysAugust + 30DaysSeptember Challenge
 
 ## Explore Problems + Solutions :rocket: :unicorn: :sunflower: 🥇
 
