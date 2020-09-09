@@ -1,4 +1,4 @@
-# Welcome to the 120-Day LeetCoding Challenge!
+# Welcome to the 180-Day LeetCoding Challenge!
 
 ---
 
