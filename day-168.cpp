@@ -18,7 +18,7 @@ Output: 5
 
 */
 
-// Simple O(N) & O(1) solution
+// Simple O(N) time & O(1) memory solution
 // Beats 92.11 % of cpp submissions.
 
 class Solution {
