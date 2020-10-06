@@ -1,4 +1,4 @@
-# Welcome to the 180-Day LeetCoding Challenge!
+# Welcome to the 210-Day LeetCoding Challenge!
 
 ---
 
@@ -6,7 +6,7 @@ How this works is that we've split the month up into 5 weeks, with 1 chapter for
 
 ---
 
-This is combined repository for 30DaysApril + 30DaysMay + 30DaysJune + 30DaysJuly + 30DaysAugust + 30DaysSeptember Challenge
+This is combined repository for 30DaysApril + 30DaysMay + 30DaysJune + 30DaysJuly + 30DaysAugust + 30DaysSeptember + 30DaysOctober Challenge
 
 ## Explore Problems + Solutions :rocket: :unicorn: :sunflower: 🥇
 
