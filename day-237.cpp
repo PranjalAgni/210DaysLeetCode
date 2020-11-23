@@ -37,17 +37,24 @@ Output: 9
 Explanation: Maximum amount of money the thief can rob = 4 + 5 = 9.
 */
 
+// DP memoized solution
+
 class Solution {
    public:
+    unordered_map<TreeNode*, int> memo;
+    int memoisedRob(TreeNode* root) {
+        return memo.find(root) != end(memo) ? memo[root]
+                                            : memo[root] = rob(root);
+    }
     int rob(TreeNode* root) {
         return root ? max(root->val +
-                              (root->left ? rob(root->left->left) +
-                                                rob(root->left->right)
+                              (root->left ? memoisedRob(root->left->left) +
+                                                memoisedRob(root->left->right)
                                           : 0) +
-                              (root->right ? rob(root->right->left) +
-                                                 rob(root->right->right)
+                              (root->right ? memoisedRob(root->right->left) +
+                                                 memoisedRob(root->right->right)
                                            : 0),
-                          rob(root->left) + rob(root->right))
+                          memoisedRob(root->left) + memoisedRob(root->right))
                     : 0;
     }
 };
