@@ -2,7 +2,7 @@
   The kth Factor of n
 
 
-Given two positive integers n and k.
+Given two positive integers n and k
 
 A factor of an integer n is defined as an integer i where n % i == 0.
 
