@@ -32,20 +32,25 @@ The number of nodes in the tree is in the range [1, 104].
 */
 
 // Simple recursive solution to validate BST
+
 class Solution {
    public:
+    vector<int> treeList;
     bool isValidBST(TreeNode* root) {
-        return checkValidBST(root, LONG_MIN, LONG_MAX);
-    }
-
-    bool checkValidBST(TreeNode* root, long low, long high) {
-        if (root == NULL) {
-            return true;
+        inorder(root);
+        for (int i = 1; i < treeList.size(); i++) {
+            if (treeList[i] <= treeList[i - 1]) {
+                return false;
+            }
         }
 
-        if (root->val < low || root->val > high) return false;
+        return true;
+    }
 
-        return checkValidBST(root->left, low, root->val) &&
-               checkValidBST(root->right, root->val, high);
+    void inorder(TreeNode* root) {
+        if (root == NULL) return;
+        inorder(root->left);
+        treeList.push_back(root->val);
+        inorder(root->right);
     }
 };
