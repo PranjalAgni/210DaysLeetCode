@@ -1,5 +1,6 @@
 /*
 Decoded String at Index
+
 An encoded string S is given.  To find and write the decoded string to a tape,
 the encoded string is read one character at a time and the following steps are
 taken:
@@ -43,39 +44,34 @@ It's guaranteed that K is less than or equal to the length of the decoded
 string. The decoded string is guaranteed to have less than 2^63 letters.
 */
 
-// This solution is currently giving me TLE
+// Simple O(N) solution
 
 class Solution {
    public:
-    bool isDigit(char ch) {
-        if (ch >= 'a' && ch <= 'z') return false;
-        return true;
-    }
-
     int charToInt(char ch) { return ch - '0'; }
 
     string decodeAtIndex(string S, int K) {
-        int N = S.size();
-        string recordedSoFar = "";
-        string answer = "";
-        int answerIdx = 0;
-        for (int idx = 0; idx < N; idx++) {
-            if (answerIdx >= K) break;
-            char current = S[idx];
-            if (isDigit(current)) {
-                int times = charToInt(current) - 1;
-                answerIdx += times * recordedSoFar.size();
-                while (times-- > 0) answer += recordedSoFar;
-                recordedSoFar = answer;
-            } else {
-                answer += current;
-                answerIdx += 1;
-                recordedSoFar += current;
-            }
+        int n = S.size();
+        long long int size = 0;
+        string ans = "";
+        for (int i = 0; i < n; i++) {
+            if (isalpha(S[i]))
+                size++;
+            else
+                size = size * charToInt(S[i]);
         }
 
-        string letter = string(1, answer[K - 1]);
-
-        return letter;
+        for (int i = n - 1; i >= 0; i--) {
+            K = K % size;
+            if (K == 0 && isalpha(S[i])) {
+                ans += S[i];
+                break;
+            }
+            if (!isalpha(S[i]))
+                size = size / charToInt(S[i]);
+            else
+                size--;
+        }
+        return ans;
     }
 };
